@@ -47,3 +47,8 @@ SDL_Window* Window::GetSDLWindow()
 {
     return _SDLWindow;
 }
+
+void Window::Resize(int width, int height)
+{
+    SDL_SetWindowSize(_SDLWindow, width, height);
+}

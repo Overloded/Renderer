@@ -7,8 +7,9 @@ Game::Game()
 {
 }
 
-int Game::Start()
+void Game::Start()
 {
+    _window.Resize(1024, 768);
     //Initialise opengl using glew
     GLenum error = glewInit();
 
@@ -26,8 +27,6 @@ int Game::Start()
 
     _state = gameState::running;
     Run();
-
-    return 0;
 }
 
 void Game::Run()
@@ -48,5 +47,3 @@ void Game::Run()
         SDL_GL_SwapWindow(_window.GetSDLWindow());
     }
 }
-
-

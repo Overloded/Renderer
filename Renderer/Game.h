@@ -12,11 +12,10 @@ class Game
 public:
     Game();
     
-    int Start();
+    void Start();
     void Run();
 
 private:
     Window _window;
     gameState _state;
 };
-

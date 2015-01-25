@@ -4,5 +4,6 @@
 int main(int argc, char** argv)
 {
     Game game;
-    return game.Start();
+    game.Start();
+    return 0;
 }
