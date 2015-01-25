@@ -40,6 +40,7 @@ Window::Window()
 
 Window::~Window()
 {
+    SDL_Quit();
 }
 
 SDL_Window* Window::GetSDLWindow()

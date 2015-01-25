@@ -1,14 +1,22 @@
 #pragma once
 #include "Window.h"
 
+enum gameState
+{
+    running,
+    quit
+};
+
 class Game
 {
 public:
     Game();
-    ~Game();
     
-    int Run();
+    int Start();
+    void Run();
 
-    Window window;
+private:
+    Window _window;
+    gameState _state;
 };
 

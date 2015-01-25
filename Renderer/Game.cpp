@@ -7,7 +7,7 @@ Game::Game()
 {
 }
 
-int Game::Run()
+int Game::Start()
 {
     //Initialise opengl using glew
     GLenum error = glewInit();
@@ -24,21 +24,29 @@ int Game::Run()
     //set the clear colour for the window
     glClearColor(0, 0, 0, 1);
 
+    _state = gameState::running;
+    Run();
+
+    return 0;
+}
+
+void Game::Run()
+{
     //Game Loop
-    while (true)
+    while (_state == gameState::running)
     {
         glClear(GL_COLOR_BUFFER_BIT);
+        
         SDL_Event event;
         SDL_PollEvent(&event);
         if (event.type == SDL_QUIT)
         {
             SDL_Quit();
-            return 0;
+            _state = gameState::quit;
         }
-        SDL_GL_SwapWindow(window.GetSDLWindow());
+
+        SDL_GL_SwapWindow(_window.GetSDLWindow());
     }
 }
 
-Game::~Game()
-{
-}
+
